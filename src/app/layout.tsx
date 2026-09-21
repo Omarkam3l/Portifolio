@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ContentProvider } from "@/context/ContentContext";
+import { AdminToolbar } from "@/components/admin/AdminToolbar";
+import { EditSectionModal } from "@/components/admin/EditSectionModal";
 import { profile } from "@/data/profile";
 import "./globals.css";
 
@@ -50,7 +53,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ContentProvider>
+            {children}
+            <AdminToolbar />
+            <EditSectionModal />
+          </ContentProvider>
         </ThemeProvider>
       </body>
     </html>

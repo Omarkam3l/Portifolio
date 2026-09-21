@@ -2,25 +2,32 @@
 
 import React from "react";
 import { Briefcase, Calendar } from "lucide-react";
-import { workExperience } from "@/data/experience";
+import { usePortfolioContent } from "@/context/ContentContext";
+import { SectionEditButton } from "./admin/SectionEditButton";
 
 export function WorkExperience() {
+  const { content } = usePortfolioContent();
+  const workExperience = content.workExperience || [];
+
   return (
     <section id="experience" className="py-24 sm:py-32 border-t border-white/5 relative">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-12">
         {/* Header matching screenshot */}
-        <div className="space-y-2">
-          <div className="text-xs font-mono uppercase tracking-widest text-sky-400 font-semibold">
-            CAREER JOURNEY
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <div className="text-xs font-mono uppercase tracking-widest text-sky-400 font-semibold">
+              CAREER JOURNEY
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-100">
+              Work Experience
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-100">
-            Work Experience
-          </h2>
+          <SectionEditButton section="experience" />
         </div>
 
         {/* Experience Cards */}
         <div className="space-y-6">
-          {workExperience.map((item) => (
+          {workExperience.map((item: any) => (
             <div
               key={item.id}
               className="rounded-3xl border border-white/10 bg-slate-900/40 hover:bg-slate-900/60 transition-all duration-300 p-6 sm:p-9 backdrop-blur-sm"
@@ -52,7 +59,7 @@ export function WorkExperience() {
 
               {/* Bullet Points with Cyan Dots */}
               <ul className="mt-6 sm:mt-7 space-y-3 pl-1 sm:pl-2">
-                {item.bulletPoints.map((bullet, idx) => (
+                {(item.bulletPoints || []).map((bullet: string, idx: number) => (
                   <li key={idx} className="flex items-start text-sm sm:text-base text-slate-300 leading-relaxed font-light">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 mr-3 shrink-0" />
                     <span>{bullet}</span>

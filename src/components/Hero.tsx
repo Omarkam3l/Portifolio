@@ -3,12 +3,16 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Download, Mail, Copy, Check } from "lucide-react";
-import { profile } from "@/data/profile";
+import { usePortfolioContent } from "@/context/ContentContext";
+import { SectionEditButton } from "./admin/SectionEditButton";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 
 export function Hero() {
+  const { content } = usePortfolioContent();
+  const profile = content.profile;
+
   const [copied, setCopied] = useState(false);
-  const titles = [
+  const titles = profile.roles && profile.roles.length > 0 ? profile.roles : [
     "Distributed Systems",
     "AI Systems Engineer",
     "Multi-Agent Orchestration",
@@ -19,7 +23,7 @@ export function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentFullText = titles[titleIndex];
+    const currentFullText = titles[titleIndex] || "Distributed Systems";
     const typingSpeed = isDeleting ? 35 : 75;
 
     const timer = setTimeout(() => {
@@ -38,7 +42,7 @@ export function Hero() {
     }, typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, titleIndex]);
+  }, [displayedText, isDeleting, titleIndex, titles]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(profile.socials.emailRaw);
@@ -56,11 +60,12 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Typography & CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Top Badge */}
-            <div>
+            {/* Top Badge & Edit Button */}
+            <div className="flex items-center justify-between">
               <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-cyan-500/30 bg-[#0e2733]/90 text-cyan-400 text-xs font-mono tracking-wider uppercase font-medium">
                 {profile.badge}
               </span>
+              <SectionEditButton section="hero" />
             </div>
 
             {/* Name with Gradient Last Name */}

@@ -1,0 +1,341 @@
+{
+  "profile": {
+    "name": "Omar Sharaby",
+    "firstName": "Omar Kamel",
+    "lastName": "Elsharaby",
+    "badge": "NVIDIA DLI-TRAINED AI ENGINEER",
+    "role": "AI & Systems Engineer",
+    "roles": [
+      "Distributed Systems",
+      "AI Systems Engineer",
+      "Agent Architecture",
+      "Data & ML Pipelines"
+    ],
+    "status": "Available for engineering roles & technical collaborations",
+    "location": "Cairo, Egypt",
+    "headline": "Building intelligent software systems & developer tools.",
+    "bio": "Specialized in building production-grade AI systems powered by LLMs, multi-agent orchestration (LangGraph), RAG pipelines, FastAPI, Kafka & Temporal.",
+    "resumeUrl": "/Omar_Kamel_Resume.pdf",
+    "avatar": "/images/profile/omar.jpg",
+    "aboutParagraphs": [
+      "I am an engineer interested in the intersection of artificial intelligence, systems programming, and developer tooling. Rather than treating AI as a black box, I focus on building systems with deterministic structure—leveraging knowledge graphs, AST analysis, and causal execution graphs to solve real engineering problems.",
+      "My recent work includes CodeGraph (a knowledge-graph powered autonomous software engineering platform), ForgeAI (asynchronous multi-agent software engineer with LangGraph and Temporal), and TraceForge SDK (runtime execution tracing on PyPI). Alongside systems development, I actively study the theoretical foundations of modern machine learning—ranging from linear algebra and optimization to probabilistic modeling."
+    ],
+    "socials": {
+      "github": "https://github.com/Omarkam3l",
+      "linkedin": "https://linkedin.com/in/omarsharaby",
+      "email": "mailto:contact@omarsharaby.dev",
+      "emailRaw": "contact@omarsharaby.dev"
+    },
+    "currentFocus": [
+      {
+        "title": "Mathematics for Machine Learning",
+        "description": "Linear algebra, multivariate calculus, and convex optimization.",
+        "tag": "Theoretical Foundations"
+      },
+      {
+        "title": "Knowledge Graphs & Code Intelligence",
+        "description": "Bounded multi-hop reasoning, AST parsing, and graph-guided retrieval.",
+        "tag": "AI Systems"
+      },
+      {
+        "title": "Systems Programming with Rust",
+        "description": "Memory safety, concurrent execution primitives, and high-performance tooling.",
+        "tag": "Systems"
+      },
+      {
+        "title": "Runtime Tracing & Observability",
+        "description": "Causal DAG construction, event streaming, and non-invasive instrumentation.",
+        "tag": "Developer Tools"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "forge-ai",
+      "title": "ForgeAI – Autonomous AI Software Engineer Platform",
+      "description": "Production-hardened, asynchronous multi-agent platform that autonomously plans, architects, generates, reviews, and tests software from natural language requests. Features a 9-phase agent pipeline coordinated by Temporal workflows with transactional outbox and self-correcting LangGraph compilation loops.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "LangGraph",
+        "Temporal",
+        "Apache Kafka",
+        "PostgreSQL",
+        "Gemini API",
+        "OpenTelemetry",
+        "Docker"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio"
+    },
+    {
+      "id": "kathir",
+      "title": "Kathir – AI-Powered Food Rescue Platform",
+      "description": "AI-driven marketplace connecting restaurants, consumers, and NGOs to reduce food waste. Features a multi-agent AI assistant built with LangGraph for meal search, cart generation, and session-aware conversational memory with hybrid vector/keyword search.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "LangGraph",
+        "LangChain",
+        "PostgreSQL",
+        "Supabase",
+        "Flutter"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio"
+    },
+    {
+      "id": "motion-iq",
+      "title": "MotionIQ – AI Sports Analytics Assessment Platform",
+      "description": "Automated athlete movement assessment platform replacing manual evaluation. Combines RTMDet human detection and RTMPose keypoint tracking with a biomechanics rule engine. Achieved 650+ req/sec throughput and 91% test coverage on AWS App Runner.",
+      "technologies": [
+        "Python 3.11",
+        "FastAPI",
+        "MMDeploy",
+        "MMDetection",
+        "PyTorch",
+        "OpenCV",
+        "Docker",
+        "AWS",
+        "Prometheus"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio"
+    },
+    {
+      "id": "big-data-pipeline",
+      "title": "Big Data Analytics Pipeline",
+      "description": "Distributed analytics pipeline streaming and processing large-scale flight data end-to-end. Real-time Kafka ingestion, PySpark transformation, and bucketed Apache Hive warehousing on Databricks File System (DBFS) for BI querying.",
+      "technologies": [
+        "Apache Spark",
+        "PySpark",
+        "Apache Kafka",
+        "Apache Hive",
+        "Databricks",
+        "Pandas",
+        "NumPy"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio"
+    },
+    {
+      "id": "adventure-works",
+      "title": "AdventureWorks2022 ETL & BI Pipeline",
+      "description": "Comprehensive ETL and Business Intelligence solution. Designed star-schema dimensional models, automated SSIS extraction workflows, and created interactive Power BI executive dashboards for enterprise sales performance.",
+      "technologies": [
+        "SQL Server",
+        "SSIS",
+        "Power BI",
+        "T-SQL",
+        "Data Warehousing"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio"
+    },
+    {
+      "id": "codegraph",
+      "title": "CodeGraph – Autonomous Software Engineering Platform",
+      "description": "Multi-phase autonomous engineering system that maps a codebase into a knowledge-graph, then plans, patches, and iteratively repairs software with automatic rollback on failure. Ships a REST API, MCP server, and CLI developer platform alongside a custom force-directed SVG Studio UI for exploring the graph.",
+      "technologies": [
+        "Python",
+        "Neo4j",
+        "ChromaDB",
+        "FastAPI",
+        "MCP",
+        "SVG"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio"
+    },
+    {
+      "id": "traceforge-sdk",
+      "title": "TraceForge SDK – Python Observability & Execution Tracing",
+      "description": "Self-authored, published Python library for tracing and replaying program execution, built to give AI agent pipelines and backend services structured observability. Published to PyPI and actively maintained.",
+      "technologies": [
+        "Python",
+        "Observability",
+        "JWT",
+        "PyPI"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio",
+      "demo": "https://pypi.org/project/traceforge/"
+    },
+    {
+      "id": "people-movement-analytics",
+      "title": "People Movement Analytics",
+      "description": "Computer vision system for analyzing pedestrian movement in fixed-camera video. YOLOv8 detection and ByteTrack tracking feed a dual-space pipeline (camera image plane and a homography-projected bird's-eye ground plane) that produces trajectories, heatmaps, multi-zone memberships, and dwell-time analytics. Validated on MOT17 sequences with 7 mathematical conservation invariants, reproducibility checks, and a 222-test suite.",
+      "technologies": [
+        "Python",
+        "ByteTrack",
+        "Homography",
+        "YOLOv8",
+        "PyTorch",
+        "MOT17",
+        "OpenCV",
+        "NumPy"
+      ],
+      "github": "https://github.com/Omarkam3l/Portifolio",
+      "demo": "https://github.com/Omarkam3l/Portifolio"
+    }
+  ],
+  "skills": [
+    {
+      "category": "AI Engineering",
+      "skills": [
+        "LLM Applications",
+        "RAG",
+        "Agentic AI",
+        "Graph RAG",
+        "LangGraph",
+        "LangChain",
+        "AI Evaluation",
+        "Prompt Engineering"
+      ]
+    },
+    {
+      "category": "Retrieval & Data",
+      "skills": [
+        "Information Retrieval",
+        "Hybrid Search",
+        "Semantic Search",
+        "Embeddings",
+        "Reranking",
+        "Neo4j",
+        "PostgreSQL",
+        "Supabase"
+      ]
+    },
+    {
+      "category": "Backend & Infrastructure",
+      "skills": [
+        "Python",
+        "FastAPI",
+        "REST APIs",
+        "Redis",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Linux"
+      ]
+    },
+    {
+      "category": "Software Engineering",
+      "skills": [
+        "Software Architecture",
+        "Runtime Instrumentation",
+        "Execution Graphs",
+        "Event Systems",
+        "Plugin Architecture",
+        "Rust"
+      ]
+    },
+    {
+      "category": "Mobile",
+      "skills": [
+        "Flutter",
+        "Dart"
+      ]
+    },
+    {
+      "category": "Computer Vision",
+      "skills": [
+        "Computer Vision",
+        "OpenCV",
+        "Image Processing",
+        "Camera Projection",
+        "Heatmaps",
+        "Multi-object Tracking"
+      ]
+    }
+  ],
+  "workExperience": [
+    {
+      "id": "depi-trainee",
+      "company": "Digital Egypt Pioneers Initiative (DEPI)",
+      "role": "AI & Data Science Trainee",
+      "period": "April 2024 — October 2024",
+      "bulletPoints": [
+        "Completed intensive training in Artificial Intelligence, Machine Learning, and Microsoft Data Engineering.",
+        "Built end-to-end machine learning models and automated data engineering pipelines using Python and SQL.",
+        "Developed robust ETL pipelines, data warehouses, and interactive business intelligence dashboards.",
+        "Applied advanced machine learning techniques to real-world datasets and deployed analytical production solutions."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "monufia-national-univ",
+      "institution": "Monufia National University",
+      "degree": "Bachelor of Computer & Artificial Intelligence Engineering",
+      "period": "2022 — 2026 (Expected)",
+      "description": "Specializing in Artificial Intelligence, Multi-Agent Engineering, and Production Machine Learning Systems."
+    }
+  ],
+  "certificates": [
+    {
+      "id": "nvidia-genai-beginner",
+      "title": "Generative AI & Prompt Engineering (Beginner Level - 36 hrs)",
+      "issuer": "NVIDIA Deep Learning Institute (DLI) via ITI",
+      "date": "2024",
+      "description": "Prompt Engineering, Augmenting LLMs with RAG & Vector Embeddings",
+      "image": "/certificates/nvidia-beginner.jpg",
+      "pdfUrl": "/certificates/Course_Certificate_En.pdf",
+      "skills": ["Prompt Engineering", "RAG", "LLMs", "Vector Embeddings"]
+    },
+    {
+      "id": "huawei-hcia-ai",
+      "title": "Huawei Certified ICT Associate - HCIA-AI V3.5",
+      "issuer": "Huawei / NTI - Artificial Intelligence Track",
+      "date": "March 2024",
+      "description": "Huawei Certified ICT Associate - Artificial Intelligence & Deep Neural Networks",
+      "image": "/certificates/huawei-hcia-ai.jpg",
+      "pdfUrl": "/certificates/HCIA-AI V3.5 Course/Omar Kamel Elsharaby.pdf",
+      "skills": ["HCIA-AI", "Neural Networks", "Deep Learning", "Huawei AI"]
+    },
+    {
+      "id": "depi-ai-datascience",
+      "title": "Digital Egypt Pioneers Initiative (DEPI) - AI & Data Science",
+      "issuer": "Ministry of Communications & Information Technology",
+      "date": "October 2024",
+      "description": "Artificial Intelligence, Machine Learning & Analytical Pipelines",
+      "image": "/certificates/depi-ai-datascience.png",
+      "pdfUrl": "/certificates/1-Omar Kamel Sayed/1-Omar Kamel Sayed.pdf",
+      "skills": ["AI Pipelines", "Machine Learning", "Data Science", "DEPI"]
+    },
+    {
+      "id": "depi-data-engineering",
+      "title": "DEPI Certification - Microsoft Data Engineering Profile",
+      "issuer": "Digital Egypt Pioneers Initiative (DEPI)",
+      "date": "October 2024",
+      "description": "Microsoft Data Engineering, Data Warehousing & Business Intelligence Dashboards",
+      "image": "/certificates/depi-data-engineering.png",
+      "pdfUrl": "/certificates/1-Omar Kamel Sayed/Omar Kamel Sayed.pdf",
+      "skills": ["Data Engineering", "Data Warehousing", "Power BI", "ETL"]
+    },
+    {
+      "id": "zewail-ai-systems",
+      "title": "Artificial Intelligence & Application Systems",
+      "issuer": "Zewail City of Science and Technology",
+      "date": "August 2024",
+      "description": "Advanced Workshop in Artificial Intelligence & Robotics Applications",
+      "image": "/certificates/zewail-ai-systems.jpeg",
+      "pdfUrl": "/certificates/zewail-ai-systems.jpeg",
+      "skills": ["Robotics Applications", "AI Systems", "Zewail City"]
+    },
+    {
+      "id": "nvidia-genai-advanced",
+      "title": "Generative AI & Building RAG Agents (Advanced Level - 100 hrs)",
+      "issuer": "NVIDIA Deep Learning Institute (DLI) via ITI",
+      "date": "2024 - 2025",
+      "description": "Deep Learning Basics, Building RAG Agents with LLMs, Multi-Agent Capstone Project",
+      "image": "/certificates/nvidia-advanced.jpg",
+      "pdfUrl": "/certificates/nvidia-advanced.pdf",
+      "skills": ["RAG Agents", "Multi-Agent Systems", "LangGraph", "NVIDIA DLI"]
+    },
+    {
+      "id": "nti-huawei-talent",
+      "title": "NTI/Huawei Egyptian Talent Academy - Artificial Intelligence",
+      "issuer": "Ministry of Communications & Information Technology / NTI / Huawei",
+      "date": "February 2025",
+      "description": "80-hour Artificial Intelligence (AI) track, Egyptian Talent Academy — completed with a score of 87%",
+      "image": "/certificates/nti-huawei-talent.png",
+      "pdfUrl": "/certificates/HCIA-AI V3.5 Course/HCIA-AI V3.5 Course.pdf",
+      "skills": ["NTI", "Huawei Talent Academy", "AI Track"]
+    }
+  ]
+}
