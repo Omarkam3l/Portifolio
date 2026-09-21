@@ -1,13 +1,24 @@
 export const profile = {
   name: "Omar Sharaby",
+  firstName: "Omar Kamel",
+  lastName: "Elsharaby",
+  badge: "NVIDIA DLI-TRAINED AI ENGINEER",
   role: "AI & Systems Engineer",
+  roles: [
+    "Distributed Systems",
+    "AI Systems Engineer",
+    "Agent Architecture",
+    "Data & ML Pipelines",
+  ],
   status: "Available for engineering roles & technical collaborations",
   location: "Cairo, Egypt",
   headline: "Building intelligent software systems & developer tools.",
-  bio: "I specialize in AI engineering, code intelligence, and software systems with a focus on understanding how things actually work under the hood. My work centers on knowledge graphs, runtime instrumentation, and bridging modern machine learning with robust software architecture.",
+  bio: "Specialized in building production-grade AI systems powered by LLMs, multi-agent orchestration (LangGraph), RAG pipelines, FastAPI, Kafka & Temporal.",
+  resumeUrl: "/Omar_Kamel_Resume.pdf",
+  avatar: "/images/profile/omar.jpg",
   aboutParagraphs: [
     "I am an engineer interested in the intersection of artificial intelligence, systems programming, and developer tooling. Rather than treating AI as a black box, I focus on building systems with deterministic structure—leveraging knowledge graphs, AST analysis, and causal execution graphs to solve real engineering problems.",
-    "My recent work includes CodeGraph RAG (a graph-powered code intelligence engine with Neo4j) and TraceForge (a Python runtime observability tool designed to expose hidden execution behaviors). Alongside systems development, I actively study the theoretical foundations of modern machine learning—ranging from linear algebra and optimization to probabilistic modeling.",
+    "My recent work includes CodeGraph (a knowledge-graph powered autonomous software engineering platform), ForgeAI (asynchronous multi-agent software engineer with LangGraph and Temporal), and TraceForge SDK (runtime execution tracing on PyPI). Alongside systems development, I actively study the theoretical foundations of modern machine learning—ranging from linear algebra and optimization to probabilistic modeling.",
   ],
   socials: {
     github: "https://github.com/Omarkam3l",

@@ -1,34 +1,84 @@
 "use client";
 
-import React from "react";
-import { ArrowRight, Mail, Sparkles, Terminal, Activity, Layers, ArrowUpRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { Download, Mail, Copy, Check } from "lucide-react";
 import { profile } from "@/data/profile";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 
 export function Hero() {
+  const [copied, setCopied] = useState(false);
+  const titles = [
+    "Distributed Systems",
+    "AI Systems Engineer",
+    "Multi-Agent Orchestration",
+    "Autonomous Code Intelligence",
+  ];
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentFullText = titles[titleIndex];
+    const typingSpeed = isDeleting ? 35 : 75;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayedText(currentFullText.slice(0, displayedText.length + 1));
+        if (displayedText.length + 1 === currentFullText.length) {
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        setDisplayedText(currentFullText.slice(0, displayedText.length - 1));
+        if (displayedText.length === 0) {
+          setIsDeleting(false);
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, titleIndex]);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(profile.socials.emailRaw);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
-      {/* Subtle ambient radial glow behind hero */}
-      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[360px] bg-sky-500/10 blur-[130px] rounded-full" />
+    <section className="relative min-h-[92vh] flex items-center justify-center pt-36 sm:pt-40 pb-20 overflow-hidden">
+      {/* Ambient background glow matching user design */}
+      <div className="pointer-events-none absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-cyan-500/10 blur-[140px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/2 right-1/4 w-[450px] h-[450px] bg-fuchsia-500/10 blur-[150px] rounded-full" />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Typography & CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-500/20 bg-sky-500/5 text-sky-400 text-xs font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span>{profile.status}</span>
+            {/* Top Badge */}
+            <div>
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-cyan-500/30 bg-[#0e2733]/90 text-cyan-400 text-xs font-mono tracking-wider uppercase font-medium">
+                {profile.badge}
+              </span>
             </div>
 
-            {/* Main Headline */}
-            <div className="space-y-3">
-              <div className="text-sm font-mono tracking-wider uppercase text-slate-400">
-                {profile.role}
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-100 leading-[1.1]">
-                Building intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">software systems</span>.
+            {/* Name with Gradient Last Name */}
+            <div className="space-y-0 sm:space-y-1">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-none">
+                {profile.firstName}
               </h1>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-[#00d2ff] via-[#a855f7] to-[#ec4899] bg-clip-text text-transparent leading-tight">
+                {profile.lastName}
+              </h1>
+            </div>
+
+            {/* Dynamic Typewriter Subtitle */}
+            <div className="h-9 flex items-center">
+              <span className="text-xl sm:text-2xl font-mono text-slate-200 tracking-tight font-medium">
+                {displayedText}
+                <span className="text-cyan-400 font-bold animate-pulse ml-0.5">|</span>
+              </span>
             </div>
 
             {/* Bio Description */}
@@ -36,129 +86,86 @@ export function Hero() {
               {profile.bio}
             </p>
 
-            {/* CTAs */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-sm transition-all duration-200 shadow-lg shadow-sky-500/15 hover:shadow-sky-500/25 hover:-translate-y-0.5 active:translate-y-0"
+                href={profile.resumeUrl}
+                download="Omar_Kamel_Resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#00d2ff] via-[#9333ea] to-[#ec4899] hover:opacity-95 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-cyan-500/20 hover:shadow-pink-500/25 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <span>View Projects</span>
-                <ArrowRight className="w-4 h-4" />
+                <Download className="w-4 h-4" />
+                <span>Download Resume</span>
               </a>
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-slate-200 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/10 hover:border-white/20 bg-slate-900/80 hover:bg-slate-900 text-slate-200 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
-                <span>Contact Me</span>
                 <Mail className="w-4 h-4 text-slate-400" />
+                <span>Contact Me</span>
               </a>
             </div>
 
-            {/* Socials & Meta */}
-            <div className="pt-6 border-t border-white/5 flex items-center gap-5 text-sm text-slate-400">
-              <a
-                href={profile.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-slate-100 transition-colors"
-              >
-                <GithubIcon className="w-4 h-4" />
-                <span className="text-xs font-mono">GitHub</span>
-                <ArrowUpRight className="w-3 h-3 text-slate-600" />
-              </a>
-
-              <span className="text-white/10">•</span>
-
+            {/* Social Icons Row */}
+            <div className="pt-2 flex items-center gap-3">
               <a
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-slate-100 transition-colors"
+                className="p-3 rounded-xl bg-slate-900/80 border border-white/10 hover:border-white/25 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all cursor-pointer shadow-sm"
+                title="LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4" />
-                <span className="text-xs font-mono">LinkedIn</span>
-                <ArrowUpRight className="w-3 h-3 text-slate-600" />
               </a>
 
-              <span className="text-white/10">•</span>
+              <a
+                href={profile.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-slate-900/80 border border-white/10 hover:border-white/25 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all cursor-pointer shadow-sm"
+                title="GitHub"
+              >
+                <GithubIcon className="w-4 h-4" />
+              </a>
 
-              <span className="text-xs font-mono text-slate-500">
-                {profile.location}
-              </span>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="p-3 rounded-xl bg-slate-900/80 border border-white/10 hover:border-white/25 text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all relative cursor-pointer group shadow-sm"
+                title="Copy Email"
+              >
+                {copied ? (
+                  <Check className="w-4 h-4 text-emerald-400" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+                {copied && (
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500 text-slate-950 font-bold shadow whitespace-nowrap">
+                    Copied!
+                  </span>
+                )}
+              </button>
             </div>
           </div>
 
-          {/* Right Column: Sleek Abstract Technical Interface */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl border border-white/10 bg-slate-900/60 p-6 backdrop-blur-xl shadow-2xl shadow-black/40 space-y-5">
-              {/* Header Bar */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/5 text-xs font-mono">
-                <div className="flex items-center gap-2 text-slate-400">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <span>runtime.telemetry</span>
-                </div>
-                <span className="text-[11px] text-slate-500 uppercase tracking-wider">v2.4.0</span>
-              </div>
+          {/* Right Column: Circular Profile Photo with Glowing Gradient Ring */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="relative group">
+              {/* Outer ambient glow */}
+              <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-cyan-400 via-sky-400 to-pink-500 opacity-60 blur-xl group-hover:opacity-90 transition-opacity duration-500" />
 
-              {/* Composition Modules */}
-              <div className="space-y-3">
-                {/* Module 1: Code Knowledge Graph */}
-                <div className="p-3.5 rounded-xl bg-slate-950/70 border border-white/5 flex items-center justify-between group hover:border-sky-500/40 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                      <Layers className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-slate-200">Code Knowledge Graph</div>
-                      <div className="text-[11px] text-slate-400 font-mono">Neo4j • AST • Bounded Hops</div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    ACTIVE
-                  </span>
+              {/* Glowing Gradient Border Ring */}
+              <div className="relative p-1 rounded-full bg-gradient-to-tr from-[#00d2ff] via-[#a855f7] to-[#ec4899] shadow-2xl">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden relative bg-slate-950">
+                  <Image
+                    src={profile.avatar}
+                    alt={`${profile.firstName} ${profile.lastName}`}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 280px, 360px"
+                    className="object-cover object-[50%_15%] scale-105 group-hover:scale-110 transition-transform duration-500 ease-out"
+                  />
                 </div>
-
-                {/* Module 2: Runtime Tracing */}
-                <div className="p-3.5 rounded-xl bg-slate-950/70 border border-white/5 flex items-center justify-between group hover:border-indigo-500/40 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                      <Activity className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-slate-200">Execution DAG Observer</div>
-                      <div className="text-[11px] text-slate-400 font-mono">Spans • Events • Causal Bus</div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                    IDLE
-                  </span>
-                </div>
-
-                {/* Module 3: System Pipeline Stats */}
-                <div className="p-3.5 rounded-xl bg-slate-950/70 border border-white/5 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      <Terminal className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-slate-200">Deterministic Synthesis</div>
-                      <div className="text-[11px] text-slate-400 font-mono">Adversarial Eval • Zero Leakage</div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">
-                    SYNCED
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom Telemetry Snippet */}
-              <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                <span className="flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3 text-sky-400" />
-                  <span>Architecture: Decoupled Data</span>
-                </span>
-                <span>UTC+2</span>
               </div>
             </div>
           </div>
