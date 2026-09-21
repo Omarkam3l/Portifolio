@@ -2,25 +2,43 @@ import { describe, it, expect } from "vitest";
 import { projects } from "@/data/projects";
 
 describe("Projects Verification Tests", () => {
-  it("includes all key projects with proper positioning", () => {
-    const codegraph = projects.find((p) => p.id === "codegraph-rag");
-    expect(codegraph).toBeDefined();
-    expect(codegraph?.title).toBe("CodeGraph RAG");
-    expect(codegraph?.layout).toBe("large");
+  it("includes all 8 key projects with verified details", () => {
+    expect(projects.length).toBe(8);
 
-    const traceforge = projects.find((p) => p.id === "traceforge");
-    expect(traceforge).toBeDefined();
-    expect(traceforge?.title).toBe("TraceForge");
-    expect(traceforge?.layout).toBe("compact");
+    const forgeAi = projects.find((p) => p.id === "forge-ai");
+    expect(forgeAi).toBeDefined();
+    expect(forgeAi?.title).toContain("ForgeAI");
+    expect(forgeAi?.technologies).toContain("Temporal");
 
     const kathir = projects.find((p) => p.id === "kathir");
     expect(kathir).toBeDefined();
-    expect(kathir?.title).toBe("Kathir");
-    expect(kathir?.layout).toBe("compact");
+    expect(kathir?.title).toContain("Kathir");
+    expect(kathir?.technologies).toContain("LangGraph");
 
-    const vision = projects.find((p) => p.id === "vision-heatmap");
-    expect(vision).toBeDefined();
-    expect(vision?.title).toBe("Spatial Heatmap & Vision Analytics");
-    expect(vision?.layout).toBe("large");
+    const motionIq = projects.find((p) => p.id === "motion-iq");
+    expect(motionIq).toBeDefined();
+    expect(motionIq?.title).toContain("MotionIQ");
+
+    const bigData = projects.find((p) => p.id === "big-data-pipeline");
+    expect(bigData).toBeDefined();
+    expect(bigData?.title).toContain("Big Data");
+
+    const adventureWorks = projects.find((p) => p.id === "adventure-works");
+    expect(adventureWorks).toBeDefined();
+    expect(adventureWorks?.title).toContain("AdventureWorks2022");
+
+    const codegraph = projects.find((p) => p.id === "codegraph");
+    expect(codegraph).toBeDefined();
+    expect(codegraph?.title).toContain("CodeGraph");
+
+    const traceforge = projects.find((p) => p.id === "traceforge-sdk");
+    expect(traceforge).toBeDefined();
+    expect(traceforge?.title).toContain("TraceForge SDK");
+    expect(traceforge?.demo).toBeTruthy();
+
+    const peopleMovement = projects.find((p) => p.id === "people-movement-analytics");
+    expect(peopleMovement).toBeDefined();
+    expect(peopleMovement?.title).toContain("People Movement Analytics");
+    expect(peopleMovement?.demo).toBeTruthy();
   });
 });

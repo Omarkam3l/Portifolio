@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
+import { projects, projectFilterTags } from "@/data/projects";
 import { workExperience, education } from "@/data/experience";
 import { skillGroups } from "@/data/skills";
 
@@ -15,7 +15,7 @@ describe("Portfolio Data Integrity Tests", () => {
   });
 
   it("verifies curated projects catalog", () => {
-    expect(projects.length).toBeGreaterThanOrEqual(4);
+    expect(projects.length).toBe(8);
     const slugs = projects.map((p) => p.id);
     expect(new Set(slugs).size).toBe(slugs.length);
 
@@ -23,8 +23,11 @@ describe("Portfolio Data Integrity Tests", () => {
       expect(proj.title).toBeTruthy();
       expect(proj.description).toBeTruthy();
       expect(proj.technologies.length).toBeGreaterThan(0);
-      expect(proj.image).toBeTruthy();
+      expect(proj.github).toBeTruthy();
     });
+
+    expect(projectFilterTags.length).toBeGreaterThan(10);
+    expect(projectFilterTags[0]).toBe("All");
   });
 
   it("verifies work experience and education records", () => {
