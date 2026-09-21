@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
-import { experience } from "@/data/experience";
+import { workExperience, education } from "@/data/experience";
 import { skillGroups } from "@/data/skills";
 
 describe("Portfolio Data Integrity Tests", () => {
@@ -27,13 +27,14 @@ describe("Portfolio Data Integrity Tests", () => {
     });
   });
 
-  it("verifies experience timeline records", () => {
-    expect(experience.length).toBeGreaterThanOrEqual(3);
-    experience.forEach((item) => {
-      expect(item.period).toBeTruthy();
-      expect(item.role).toBeTruthy();
-      expect(item.description).toBeTruthy();
-    });
+  it("verifies work experience and education records", () => {
+    expect(workExperience.length).toBeGreaterThanOrEqual(1);
+    expect(workExperience[0].company).toContain("Digital Egypt Pioneers Initiative");
+    expect(workExperience[0].bulletPoints.length).toBeGreaterThan(0);
+
+    expect(education.length).toBeGreaterThanOrEqual(1);
+    expect(education[0].institution).toContain("Monufia National University");
+    expect(education[0].degree).toContain("Bachelor");
   });
 
   it("verifies skill groups", () => {

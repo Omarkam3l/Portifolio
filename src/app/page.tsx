@@ -3,7 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
-import { Experience } from "@/components/Experience";
+import { WorkExperience } from "@/components/WorkExperience";
+import { Education } from "@/components/Education";
 import { Skills } from "@/components/Skills";
 import { Certificates } from "@/components/Certificates";
 import { CurrentFocus } from "@/components/CurrentFocus";
@@ -24,7 +25,8 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
-        <Experience />
+        <WorkExperience />
+        <Education />
         <Skills />
         <Certificates />
         <CurrentFocus />
