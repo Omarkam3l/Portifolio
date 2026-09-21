@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { profile } from "@/data/profile";
 import { projects, projectFilterTags } from "@/data/projects";
 import { workExperience, education } from "@/data/experience";
-import { skillGroups } from "@/data/skills";
+import { coreSkillCategories } from "@/data/skills";
 
 describe("Portfolio Data Integrity Tests", () => {
   it("verifies profile metadata and contact information", () => {
@@ -40,11 +40,30 @@ describe("Portfolio Data Integrity Tests", () => {
     expect(education[0].degree).toContain("Bachelor");
   });
 
-  it("verifies skill groups", () => {
-    expect(skillGroups.length).toBeGreaterThanOrEqual(4);
-    skillGroups.forEach((group) => {
+  it("verifies skill groups have ZERO duplicates across all categories and no Frontend category", () => {
+    expect(coreSkillCategories.length).toBe(6);
+    expect(coreSkillCategories.some((c) => c.category.toLowerCase().includes("frontend"))).toBe(false);
+
+    const allSkills: string[] = [];
+    const seenSkills = new Set<string>();
+    const duplicateSkills: string[] = [];
+
+    coreSkillCategories.forEach((group) => {
       expect(group.category).toBeTruthy();
       expect(group.skills.length).toBeGreaterThan(0);
+
+      group.skills.forEach((skill) => {
+        allSkills.push(skill);
+        if (seenSkills.has(skill.toLowerCase())) {
+          duplicateSkills.push(skill);
+        } else {
+          seenSkills.add(skill.toLowerCase());
+        }
+      });
     });
+
+    // Verify absolutely no duplicate skills exist across categories
+    expect(duplicateSkills).toEqual([]);
+    expect(seenSkills.size).toBe(allSkills.length);
   });
 });
