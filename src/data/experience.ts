@@ -1,61 +1,42 @@
-import { ExperienceItem } from "@/types/portfolio";
+export interface JourneyItem {
+  period: string;
+  role: string;
+  context: string;
+  description: string;
+  tags?: string[];
+}
 
-export const experience: ExperienceItem[] = [
+export const experience: JourneyItem[] = [
   {
     period: "2024 — Present",
-    role: "AI & Systems Engineering (Independent Research & Projects)",
-    organization: "Independent",
-    location: "Cairo, Egypt",
+    role: "AI & Systems Engineering",
+    context: "Independent Research & Core Projects",
     description:
-      "Deep-diving into code intelligence architectures, knowledge graph retrieval, and runtime observability systems.",
-    highlights: [
-      "Engineered CodeGraph RAG for semantic AST parsing and Neo4j graph traversal across polyglot repositories.",
-      "Developed TraceForge to capture function spans and build directed execution graphs for Python applications.",
-      "Prototyped surplus food rescue matching architecture with Flutter and Supabase (Kathir).",
-    ],
-    tech: ["Python", "Neo4j", "Graph RAG", "Next.js", "TypeScript", "Flutter"],
-    type: "project",
+      "Architecting knowledge graph RAG systems (CodeGraph RAG), Python runtime execution tracing engines (TraceForge), and exploring multi-hop code reasoning with Neo4j and Tree-sitter.",
+    tags: ["Neo4j", "Graph RAG", "Python", "TypeScript", "Observability"],
   },
   {
     period: "Milestone",
-    role: "Code Intelligence & Graph RAG Milestone",
-    organization: "Technical Milestone",
-    location: "Remote",
+    role: "Graph RAG & Code Intelligence Architecture",
+    context: "Technical Milestone",
     description:
-      "Completed foundational architecture for bounded multi-hop traversals and hybrid vector-graph query routing.",
-    highlights: [
-      "Benchmarked retrieval accuracy against complex multi-file dependency questions.",
-      "Designed adversarial evaluation scenarios testing code repair boundaries.",
-    ],
-    tech: ["Neo4j", "Cypher", "Tree-sitter", "Python"],
-    type: "milestone",
+      "Designed and benchmarked bounded multi-hop graph retrieval on monolithic codebases to eliminate context window explosion during deep dependency traversals.",
+    tags: ["AST Parsing", "Cypher", "Tree-sitter", "Knowledge Graphs"],
   },
   {
     period: "Milestone",
-    role: "Runtime Instrumentation Engine",
-    organization: "Technical Milestone",
-    location: "Remote",
+    role: "Runtime Instrumentation & Event Bus",
+    context: "Observability Engine Milestone",
     description:
-      "Implemented decoupled asynchronous event bus and causal execution graph builder for Python testing environments.",
-    highlights: [
-      "Achieved sub-millisecond dispatch overhead on event streaming.",
-      "Created visual execution DAG generator to expose runtime test failures.",
-    ],
-    tech: ["Python", "AsyncIO", "Instrumentation", "Event Bus"],
-    type: "milestone",
+      "Built decoupled asynchronous event dispatching for Python runtime sessions to construct causal execution DAGs with sub-millisecond overhead.",
+    tags: ["AsyncIO", "Event Bus", "Execution Graphs", "Instrumentation"],
   },
   {
-    period: "[ADD DATES]",
-    role: "Software Engineering / Technical Experience [ADD YOUR EXPERIENCE]",
-    organization: "[ADD COMPANY / UNIVERSITY]",
-    location: "[ADD LOCATION]",
+    period: "Earlier",
+    role: "Full-Stack Software Engineering",
+    context: "Product & Infrastructure Systems",
     description:
-      "[ADD YOUR EXPERIENCE: Replace this placeholder with your professional work history, internships, or academic background.]",
-    highlights: [
-      "[ADD HIGHLIGHT 1: Key system designed or shipped]",
-      "[ADD HIGHLIGHT 2: Core technical contribution or responsibility]",
-    ],
-    tech: ["Python", "TypeScript", "SQL", "Git"],
-    type: "work",
+      "Designed and shipped full-stack applications with Next.js, React, Node.js, and relational databases. Prototyped surplus food rescue platform architecture using Flutter and Supabase.",
+    tags: ["Next.js", "Flutter", "Supabase", "PostgreSQL", "Docker"],
   },
 ];
