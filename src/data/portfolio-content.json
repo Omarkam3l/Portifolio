@@ -66,7 +66,7 @@
         "OpenTelemetry",
         "Docker"
       ],
-      "github": "https://github.com/Omarkam3l/Portifolio"
+      "github": "https://github.com/Omarkam3l/ForgeAI"
     },
     {
       "id": "kathir",
@@ -81,7 +81,7 @@
         "Supabase",
         "Flutter"
       ],
-      "github": "https://github.com/Omarkam3l/Portifolio"
+      "github": "https://github.com/Omarkam3l/Kathir_final"
     },
     {
       "id": "motion-iq",
@@ -98,7 +98,7 @@
         "AWS",
         "Prometheus"
       ],
-      "github": "https://github.com/Omarkam3l/Portifolio"
+      "github": "https://github.com/Omarkam3l/MotionIQ"
     },
     {
       "id": "big-data-pipeline",
@@ -152,8 +152,8 @@
         "JWT",
         "PyPI"
       ],
-      "github": "https://github.com/Omarkam3l/Portifolio",
-      "demo": "https://pypi.org/project/traceforge/"
+      "github": "https://github.com/Omarkam3l/Trace",
+      "demo": "https://pypi.org/project/traceforge-sdk/"
     },
     {
       "id": "people-movement-analytics",
@@ -169,8 +169,8 @@
         "OpenCV",
         "NumPy"
       ],
-      "github": "https://github.com/Omarkam3l/Portifolio",
-      "demo": "https://github.com/Omarkam3l/Portifolio"
+      "github": "https://github.com/Omarkam3l/People-analytics",
+      "demo": "https://github.com/Omarkam3l/People-analytics"
     }
   ],
   "skills": [

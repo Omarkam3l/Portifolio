@@ -71,7 +71,7 @@ export const projects: Project[] = [
       "OpenTelemetry",
       "Docker",
     ],
-    github: "https://github.com/Omarkam3l/Portifolio",
+    github: "https://github.com/Omarkam3l/ForgeAI",
   },
   {
     id: "kathir",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       "Supabase",
       "Flutter",
     ],
-    github: "https://github.com/Omarkam3l/Portifolio",
+    github: "https://github.com/Omarkam3l/Kathir_final",
   },
   {
     id: "motion-iq",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
       "AWS",
       "Prometheus",
     ],
-    github: "https://github.com/Omarkam3l/Portifolio",
+    github: "https://github.com/Omarkam3l/MotionIQ",
   },
   {
     id: "big-data-pipeline",
@@ -163,8 +163,8 @@ export const projects: Project[] = [
       "JWT",
       "PyPI",
     ],
-    github: "https://github.com/Omarkam3l/Portifolio",
-    demo: "https://pypi.org/project/traceforge/",
+    github: "https://github.com/Omarkam3l/Trace",
+    demo: "https://pypi.org/project/traceforge-sdk/",
   },
   {
     id: "people-movement-analytics",
@@ -181,7 +181,7 @@ export const projects: Project[] = [
       "OpenCV",
       "NumPy",
     ],
-    github: "https://github.com/Omarkam3l/Portifolio",
-    demo: "https://github.com/Omarkam3l/Portifolio",
+    github: "https://github.com/Omarkam3l/People-analytics",
+    demo: "https://github.com/Omarkam3l/People-analytics",
   },
 ];
